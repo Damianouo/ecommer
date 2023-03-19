@@ -2,9 +2,9 @@ import {
   FavoriteBorderOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
-} from '@mui/icons-material';
-import styled from 'styled-components';
-import { mobile } from '../responsive';
+} from "@mui/icons-material";
+import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Info = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const Info = styled.div`
 `;
 
 const Container = styled.div`
-  flex: 1 1 300px;
+  flex: 1 1 24%;
   margin: 5px;
   min-width: 300px;
   height: 350px;
@@ -38,7 +38,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  ${mobile({ height: '250px' })}
+  ${mobile({ height: "250px" })}
 `;
 
 const Circle = styled.div`
