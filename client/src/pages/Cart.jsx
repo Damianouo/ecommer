@@ -4,10 +4,12 @@ import Annoucement from '../components/Annoucement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { mobile } from '../responsive';
+import PageTransition from '../components/style/PageTransition';
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
+  background-color: white;
   padding: 20px;
   ${mobile({ padding: '10px' })}
 `;
@@ -155,98 +157,100 @@ const SummaryButton = styled.button`
 
 const Cart = () => {
   return (
-    <Container>
-      <Annoucement />
-      <Navbar />
-      <Wrapper>
-        <Title>YOUR BAG</Title>
-        <Top>
-          <TopButtom>CONTINUE SHOPPING</TopButtom>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist(2)</TopText>
-          </TopTexts>
-          <TopButtom type="filled">CHECKOUT NOW</TopButtom>
-        </Top>
+    <PageTransition>
+      <Container>
+        <Annoucement />
+        <Navbar />
+        <Wrapper>
+          <Title>YOUR BAG</Title>
+          <Top>
+            <TopButtom>CONTINUE SHOPPING</TopButtom>
+            <TopTexts>
+              <TopText>Shopping Bag(2)</TopText>
+              <TopText>Your Wishlist(2)</TopText>
+            </TopTexts>
+            <TopButtom type="filled">CHECKOUT NOW</TopButtom>
+          </Top>
 
-        <Botton>
-          <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://source.unsplash.com/BeZGTKfVEOs" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
-                  </ProductName>
-                  <ProductID>
-                    <b>ID:</b> 93813718293
-                  </ProductID>
-                  <ProductColor bg="black" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://source.unsplash.com/RqYTuWkTdEs" />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> HAKUYO SHIRT
-                  </ProductName>
-                  <ProductID>
-                    <b>ID:</b> 93813189396
-                  </ProductID>
-                  <ProductColor bg="black" />
-                  <ProductSize>
-                    <b>Size:</b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>1</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 20</ProductPrice>
-              </PriceDetail>
-            </Product>
-          </Info>
-          <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryButton>CHECKOUT NOW</SummaryButton>
-          </Summary>
-        </Botton>
-      </Wrapper>
-      <Footer />
-    </Container>
+          <Botton>
+            <Info>
+              <Product>
+                <ProductDetail>
+                  <Image src="https://source.unsplash.com/BeZGTKfVEOs" />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> JESSIE THUNDER SHOES
+                    </ProductName>
+                    <ProductID>
+                      <b>ID:</b> 93813718293
+                    </ProductID>
+                    <ProductColor bg="black" />
+                    <ProductSize>
+                      <b>Size:</b> 37.5
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>2</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>$ 30</ProductPrice>
+                </PriceDetail>
+              </Product>
+              <Hr />
+              <Product>
+                <ProductDetail>
+                  <Image src="https://source.unsplash.com/RqYTuWkTdEs" />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> HAKUYO SHIRT
+                    </ProductName>
+                    <ProductID>
+                      <b>ID:</b> 93813189396
+                    </ProductID>
+                    <ProductColor bg="black" />
+                    <ProductSize>
+                      <b>Size:</b> M
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>1</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>$ 20</ProductPrice>
+                </PriceDetail>
+              </Product>
+            </Info>
+            <Summary>
+              <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+              <SummaryItem>
+                <SummaryItemText>Subtotal</SummaryItemText>
+                <SummaryItemPrice>$ 80</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem>
+                <SummaryItemText>Estimated Shipping</SummaryItemText>
+                <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem>
+                <SummaryItemText>Shipping Discount</SummaryItemText>
+                <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem type="total">
+                <SummaryItemText>Total</SummaryItemText>
+                <SummaryItemPrice>$ 80</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryButton>CHECKOUT NOW</SummaryButton>
+            </Summary>
+          </Botton>
+        </Wrapper>
+        <Footer />
+      </Container>
+    </PageTransition>
   );
 };
 

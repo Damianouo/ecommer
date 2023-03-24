@@ -6,6 +6,8 @@ import { mobile } from '../responsive';
 const Container = styled.div`
   height: 70px;
   ${mobile({ height: '50px' })}
+  --font-size:18px;
+  --font-weight: 500;
 `;
 const Wrapper = styled.div`
   padding: 10px 40px;
@@ -23,7 +25,8 @@ const Left = styled.div`
 `;
 
 const Language = styled.span`
-  font-size: 14px;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
   cursor: pointer;
   ${mobile({ display: 'none' })}
 `;
@@ -38,6 +41,7 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
+  font-size: var(--font-size);
   border: none;
   ${mobile({ width: '50px' })}
 `;
@@ -65,7 +69,8 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
   cursor: pointer;
   margin-left: 25px;
   ${mobile({ fontSize: '12px', marginLeft: '10px' })};
@@ -79,7 +84,7 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="search" />
-            <Search style={{ color: 'gray', fontSize: '16px' }} />
+            <Search style={{ color: 'gray', fontSize: 'var(--font-size)' }} />
           </SearchContainer>
         </Left>
         <Center>
@@ -90,7 +95,7 @@ const Navbar = () => {
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
+              <ShoppingCartOutlined style={{ fontSize: '40px)' }} />
             </Badge>
           </MenuItem>
         </Right>

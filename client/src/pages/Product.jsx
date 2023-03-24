@@ -5,10 +5,12 @@ import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import { Add, Remove } from '@mui/icons-material';
 import { mobile } from '../responsive';
+import PageTransition from '../components/style/PageTransition';
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
+  background-color: white;
   padding: 50px;
   display: flex;
   ${mobile({ padding: '10px', flexDirection: 'column' })}
@@ -113,52 +115,54 @@ const Button = styled.button`
 
 const Product = () => {
   return (
-    <Container>
-      <Annoucement />
-      <Navbar />
-      <Wrapper>
-        <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
-        </ImgContainer>
-        <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Desc>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
-            voluptatem ea ab. Dolor animi reprehenderit explicabo voluptatibus
-            voluptas similique enim?
-          </Desc>
-          <Price>$20</Price>
-          <FilterContainer>
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor bg="black" />
-              <FilterColor bg="darkblue" />
-              <FilterColor bg="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
-          <AddContainer>
-            <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
-            </AmountContainer>
-            <Button>ADD TO CART</Button>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
-      <Newsletter />
-      <Footer />
-    </Container>
+    <PageTransition>
+      <Container>
+        <Annoucement />
+        <Navbar />
+        <Wrapper>
+          <ImgContainer>
+            <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>Denim Jumpsuit</Title>
+            <Desc>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
+              voluptatem ea ab. Dolor animi reprehenderit explicabo voluptatibus
+              voluptas similique enim?
+            </Desc>
+            <Price>$20</Price>
+            <FilterContainer>
+              <Filter>
+                <FilterTitle>Color</FilterTitle>
+                <FilterColor bg="black" />
+                <FilterColor bg="darkblue" />
+                <FilterColor bg="gray" />
+              </Filter>
+              <Filter>
+                <FilterTitle>Size</FilterTitle>
+                <FilterSize>
+                  <FilterSizeOption>XS</FilterSizeOption>
+                  <FilterSizeOption>S</FilterSizeOption>
+                  <FilterSizeOption>M</FilterSizeOption>
+                  <FilterSizeOption>L</FilterSizeOption>
+                  <FilterSizeOption>XL</FilterSizeOption>
+                </FilterSize>
+              </Filter>
+            </FilterContainer>
+            <AddContainer>
+              <AmountContainer>
+                <Remove />
+                <Amount>1</Amount>
+                <Add />
+              </AmountContainer>
+              <Button>ADD TO CART</Button>
+            </AddContainer>
+          </InfoContainer>
+        </Wrapper>
+        <Newsletter />
+        <Footer />
+      </Container>
+    </PageTransition>
   );
 };
 

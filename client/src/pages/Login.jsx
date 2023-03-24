@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import LoginBg from '../assets/LoginBg.jpg';
 import { mobile } from '../responsive';
+import PageTransition from '../components/style/PageTransition';
 
 const Container = styled.div`
   width: 100vw;
@@ -66,18 +67,20 @@ const Link = styled.a`
 
 const Login = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+    <PageTransition>
+      <Container>
+        <Wrapper>
+          <Title>SIGN IN</Title>
+          <Form>
+            <Input placeholder="username" />
+            <Input placeholder="password" />
+            <Button>LOGIN</Button>
+            <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+            <Link>CREATE A NEW ACCOUNT</Link>
+          </Form>
+        </Wrapper>
+      </Container>
+    </PageTransition>
   );
 };
 
