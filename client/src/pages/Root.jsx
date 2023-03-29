@@ -1,6 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import styled from 'styled-components';
-import PageTransition from '../components/style/PageTransition';
+import { NavLink, Outlet } from "react-router-dom";
+import styled from "styled-components";
 
 const LinkDiv = styled.div`
   display: flex;
@@ -21,20 +20,20 @@ const LinkDiv = styled.div`
 
 const Root = () => {
   return (
-    <PageTransition>
+    <>
       <LinkDiv>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/product">Product</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-        <NavLink to="/test">Testttt</NavLink>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/products'>Products</NavLink>
+        <NavLink to='/product'>Product</NavLink>
+        <NavLink to='/register'>Register</NavLink>
+        <NavLink to='/login'>Login</NavLink>
+        <NavLink to='/cart'>Cart</NavLink>
+        <NavLink to='/test'>Testttt</NavLink>
       </LinkDiv>
-      <div id="detail">
+      <div id='detail'>
         <Outlet />
       </div>
-    </PageTransition>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
-import fubodSummer from "./assets/fubodSummer.png";
 import fubodAutumn from "./assets/fubodAutumn.png";
+import fubodSummer from "./assets/fubodSummer.png";
 import fubodWinter from "./assets/fubodWinter.png";
 
 //' popular product
@@ -38,7 +38,7 @@ export const categories = [
     id: 1,
     img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     title: "SHIRT STYLE!",
-    cat: "women",
+    cat: "woman",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ export const categories = [
     id: 3,
     img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     title: "LIGHT JACKETS",
-    cat: "jeans",
+    cat: "both",
   },
 ];
 

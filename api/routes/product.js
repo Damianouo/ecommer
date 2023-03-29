@@ -21,14 +21,14 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 //'Update
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
-    const updateProduct = await Product.findByIdAndUpdate(
+    const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body, //? mongo DB $set
       },
       { new: true } //?return the modified document rather than the original
     );
-    res.status(200).json(updateProduct);
+    res.status(200).json(updatedProduct);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -54,46 +54,28 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
-//'Get All Products
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
-  //? Only Admin get any user
-  const query = req.query.new;
+//'Get All Product
+router.get("/", async (req, res) => {
+  const qNew = req.query.new;
+  const qCategory = req.query.category;
   try {
-    const user = query
-      ? await User.find().sort({ _id: -1 }).limit(5)
-      : await User.find();
-    const { password, ...others } = user._doc; //? have no idea
-
-    res.status(200).json(others);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//'Get User Stats
-
-router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
-  const date = new Date(); //? create current date
-  const lastYear = new Date(date.setFullYear(date.getFullYear() - 1)); //? return last year of today
-
-  try {
-    //' mongo DB aggregate
-    //?
-    const data = await User.aggregate([
-      { $match: { createdAt: { $gte: lastYear } } },
-      {
-        $project: {
-          month: { $month: "$createdAt" }, //?september => month: 9
+    let products;
+    if (qNew) {
+      //? Get newest 5 products
+      products = await Product.find().sort({ createdAt: -1 }).limit(1);
+    } else if (qCategory) {
+      //? if qCategory is inside product model (categories: type == Array)
+      //? => fetch these products
+      products = await Product.find({
+        categories: {
+          $in: [qCategory],
         },
-      },
-      {
-        $group: {
-          _id: "$month", //? month: 9 (up there)
-          total: { $sum: 1 }, //?sum and get total number of every register user
-        },
-      },
-    ]);
-    res.status(200).json(data); //? => [{"_id": 9, "total": 2 }]
+      });
+    } else {
+      //? No query => fetch all products
+      products = await Product.find();
+    }
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);
   }

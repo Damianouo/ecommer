@@ -1,13 +1,13 @@
-const router = require("express").Router();
-const User = require("../models/User");
+const router = require('express').Router();
+const User = require('../models/User');
 const {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-} = require("./verifyToken");
+} = require('./verifyToken');
 
 //'Update
-router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
   if (req.body.password) {
     //? turn req.body.password into encrypted version
     req.body.password = CryptoJS.AES.encrypt(
@@ -31,27 +31,17 @@ router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //'Delete
-router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
+router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
-    res.status(200).json("User has been deleted!");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//'Get User
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-    res.status(200).json(user);
+    res.status(200).json('User has been deleted!');
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 //'Get All User
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
   //? Only Admin get any user
   const query = req.query.new;
   try {
@@ -68,7 +58,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 
 //'Get User Stats
 
-router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
   const date = new Date(); //? create current date
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1)); //? return last year of today
 
@@ -79,12 +69,12 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
       { $match: { createdAt: { $gte: lastYear } } },
       {
         $project: {
-          month: { $month: "$createdAt" }, //?september => month: 9
+          month: { $month: '$createdAt' }, //?september => month: 9
         },
       },
       {
         $group: {
-          _id: "$month", //? month: 9 (up there)
+          _id: '$month', //? month: 9 (up there)
           total: { $sum: 1 }, //?sum and get total number of every register user
         },
       },

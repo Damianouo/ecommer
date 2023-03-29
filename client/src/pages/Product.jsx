@@ -1,11 +1,12 @@
-import styled from 'styled-components';
-import Annoucement from '../components/Annoucement';
-import Navbar from '../components/Navbar';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
-import { Add, Remove } from '@mui/icons-material';
-import { mobile } from '../responsive';
-import PageTransition from '../components/style/PageTransition';
+import { Add, Remove } from "@mui/icons-material";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import Annoucement from "../components/Annoucement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
+import PageTransition from "../components/style/PageTransition";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
   background-color: white;
   padding: 50px;
   display: flex;
-  ${mobile({ padding: '10px', flexDirection: 'column' })}
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 const ImgContainer = styled.div`
   flex: 1 1 50%;
@@ -22,12 +23,12 @@ const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
-  ${mobile({ height: '40vh' })}
+  ${mobile({ height: "40vh" })}
 `;
 const InfoContainer = styled.div`
   flex: 1 1 50%;
   padding: 0 50px;
-  ${mobile({ padding: '10px' })}
+  ${mobile({ padding: "10px" })}
 `;
 const Title = styled.h1`
   font-weight: 200;
@@ -46,7 +47,7 @@ const FilterContainer = styled.div`
   margin: 30px 0;
   display: flex;
   justify-content: space-between;
-  ${mobile({ width: '100%' })}
+  ${mobile({ width: "100%" })}
 `;
 
 const Filter = styled.div`
@@ -80,7 +81,7 @@ const AddContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${mobile({ width: '100%' })}
+  ${mobile({ width: "100%" })}
 `;
 
 const AmountContainer = styled.div`
@@ -114,6 +115,9 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
   return (
     <PageTransition>
       <Container>
@@ -121,7 +125,7 @@ const Product = () => {
         <Navbar />
         <Wrapper>
           <ImgContainer>
-            <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+            <Image src='https://i.ibb.co/S6qMxwr/jean.jpg' />
           </ImgContainer>
           <InfoContainer>
             <Title>Denim Jumpsuit</Title>
@@ -134,9 +138,9 @@ const Product = () => {
             <FilterContainer>
               <Filter>
                 <FilterTitle>Color</FilterTitle>
-                <FilterColor bg="black" />
-                <FilterColor bg="darkblue" />
-                <FilterColor bg="gray" />
+                <FilterColor bg='black' />
+                <FilterColor bg='darkblue' />
+                <FilterColor bg='gray' />
               </Filter>
               <Filter>
                 <FilterTitle>Size</FilterTitle>
