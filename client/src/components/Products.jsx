@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { popularProducts } from "../data";
-import ProductItem from "./ProductItem";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { popularProducts } from '../data';
+import ProductItem from './ProductItem';
 
 const Container = styled.div`
   padding: 20px;
@@ -23,7 +23,7 @@ const Products = ({ cat, filters, sort }) => {
         const res = await axios.get(
           cat
             ? `http://localhost:5000/api/products?category=${cat}`
-            : "http://localhost:5000/api/products"
+            : 'http://localhost:5000/api/products'
         );
         setProducts(res.data);
       } catch (err) {
@@ -49,11 +49,11 @@ const Products = ({ cat, filters, sort }) => {
 
   //? Sort
   useEffect(() => {
-    if (sort === "newest") {
+    if (sort === 'newest') {
       setfilteredProducts((prev) =>
         [...prev].sort((a, b) => a.createdAt - b.createdAt)
       );
-    } else if (sort === "asc") {
+    } else if (sort === 'asc') {
       setfilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
       );
