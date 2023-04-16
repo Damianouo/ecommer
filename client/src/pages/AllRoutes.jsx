@@ -10,10 +10,11 @@ import Test from "./Test";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const AllRoutes = () => {
   const location = useLocation();
-  const user = false;
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <AnimatePresence initial={false} mode='wait'>
       <Routes location={location} key={location.pathname}>
